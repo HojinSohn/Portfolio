@@ -21,9 +21,10 @@ import ReactCardFlip from 'react-card-flip';
 import {useState} from "react";
 import Card from 'react-bootstrap/Card';
 import { useNavigate } from 'react-router-dom';
-import AboutMe from "../Components/AboutMe";
+import AboutMe from "../Components/Projects";
 import PreviousExperienceCard from "../Components/PreviousExperienceCard";
 import { FaArrowRotateLeft } from "react-icons/fa6";
+import Projects from "../Components/Projects";
 
 function HomePage() {
     const navigate = useNavigate();
@@ -65,7 +66,6 @@ function HomePage() {
                             justifyContent: 'center',
                             alignItems: 'center',
                             minHeight: '100vh',
-                            backgroundImage: "url('/grey.jpg')",
                         }}>
                             <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
                                 <Card className="shadow-lg  d-flex justify-content-center align-content-center"
@@ -74,7 +74,7 @@ function HomePage() {
                                     <Row className="justify-content-center w-100">
                                         <Col xs={12} md={6} className="d-flex justify-content-center align-items-center">
                                             {/* Centering image within the column */}
-                                            <Image src="/Profile.jpeg" alt="Image description" width={350} height={350} roundedCircle />
+                                            <Image src="/images/Profile.jpeg" alt="Image description" width={350} height={350} roundedCircle />
                                         </Col>
                                         <Col xs={12} md={6} className="d-flex justify-content-center align-items-center">
                                             <Row>
@@ -109,7 +109,7 @@ function HomePage() {
                                                         onMouseOut={(e) => e.target.style.color = ''}
                                                         onClick={linkedInClicked}
                                                     >
-                                                        <FaLinkedin size={40}/>
+                                                        <FaLinkedin size={55}/>
                                                     </button>
                                                     <button
                                                         className=" btn me-5"
@@ -118,84 +118,86 @@ function HomePage() {
                                                         onMouseOut={(e) => e.target.style.color = ''}
                                                         onClick={githubClicked}
                                                     >
-                                                        <IoLogoGithub size={40}/>
-                                                    </button>
-                                                    <button
-                                                        className="btn me-5"
-                                                        style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-                                                        onMouseOver={(e) => e.target.style.color = '#007bff'}
-                                                        onMouseOut={(e) => e.target.style.color = ''}
-                                                        onClick={resumeClicked}
-                                                    >
-                                                        <IoIosDocument size={40}/>
+                                                        <IoLogoGithub size={55}/>
                                                     </button>
                                                 </Container>
                                             </Row>
                                         </Col>
                                     </Row>
                                 </Card>
-                                <Card className="shadow-lg d-flex justify-content-center align-content-center"
-                                      style={{
-                                          width: '70em',
-                                          height: '40em',
-                                          background: '#FFFFFE',
-                                          border: '1px solid #ddd',
-                                          borderRadius: '15px',
-                                          boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
-                                          padding: '2rem',
-                                          textAlign: 'center',
-                                          margin: '2rem auto',
-                                      }}
-                                      onClick={flipCard}>
+                                <Card
+                                    className="shadow-lg d-flex justify-content-center align-content-center"
+                                    style={{
+                                        width: '70em',
+                                        height: '40em',
+                                        background: '#FFFFFF',
+                                        border: '1px solid #ddd',
+                                        borderRadius: '15px',
+                                        boxShadow: '0 6px 20px rgba(0, 0, 0, 0.15)',
+                                        padding: '2rem',
+                                        margin: '2rem auto',
+                                    }}
+                                    onClick={flipCard}
+                                >
+                                    <Row className="g-4 justify-content-center">
+                                        {/* Column for Education and Interest */}
+                                        <Col xs={12} md={6}>
+                                            {/* Interest Section */}
+                                            <Card
+                                                style={{
+                                                    background: '#F9FAFB',
+                                                    border: '1px solid #E5E7EB',
+                                                    borderRadius: '10px',
+                                                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+                                                    height: '40%'
+                                                }}
+                                            >
+                                                <Card.Body>
+                                                    <Card.Title style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#333' }}>Interest</Card.Title>
+                                                    <div className="d-flex flex-wrap justify-content-center gap-2 mt-3">
+                                                        <Badge bg="primary" className="px-3 py-2" style={{ fontSize: '1rem' }}>Machine Learning</Badge>
+                                                        <Badge bg="secondary" className="px-3 py-2" style={{ fontSize: '1rem' }}>Software Engineering</Badge>
+                                                    </div>
+                                                </Card.Body>
+                                            </Card>
 
-                                    <Row className="justify-content-center">
-                                        <Col className="d-flex  align-items-center">
+                                            <Col style={{ height: '5%', maxWidth: '500px'}}>
 
-                                            {/* Column for Education and Interest */}
-                                            <Col className="">
-                                                {/* Interest Section */}
-                                                <Card className="shadow-lg mb-5" style={{ width: '100%', maxWidth: '500px', background: '#FFFFFE', border: '1px', boxShadow: '0 10px 30px 5px rgba(0, 0, 0, 0.1)' }}>
-                                                    <Card.Body>
-                                                        <Card.Title style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#333' }}>Interest</Card.Title>
-                                                        <Card.Text style={{ fontSize: '1.1rem', lineHeight: '1.5', color: '#666' }}>
-                                                            <Col className="d-flex justify-content-center">
-                                                                <Badge bg="primary" className="p-2 mb-2 me-5" style={{ fontSize: '1rem' }}>Machine Learning</Badge>
-                                                                <Badge bg="primary" className="p-2 mb-2" style={{ fontSize: '1rem' }}>Software Engineering</Badge>
-                                                            </Col>
-                                                        </Card.Text>
-                                                    </Card.Body>
-                                                </Card>
-
-                                                {/* Education Section */}
-                                                <Card className="shadow-lg" style={{ width: '100%', maxWidth: '500px', background: '#FFFFFE', border: '1px', boxShadow: '0 10px 30px 5px rgba(0, 0, 0, 0.1)' }}>
-                                                    <Card.Body className="p-4">
-                                                        <Card.Title style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#333' }}>
-                                                            Education
-                                                        </Card.Title>
-                                                        <Card.Text style={{ fontSize: '1.1rem', lineHeight: '1.6', color: '#666' }}>
-                                                            <strong>Purdue University</strong> <br />
-                                                            Bachelor’s of Science and Master’s in Computer Science <br />
-                                                            <em>Expected Graduation: December 2026</em> <br />
-                                                            <strong>GPA:</strong> 3.9/4.0
-                                                        </Card.Text>
-                                                    </Card.Body>
-                                                </Card>
                                             </Col>
 
-                                            {/* Column for Previous Experience */}
-                                            <Col className="">
-                                                {/* Previous Experience Section */}
-                                                <PreviousExperienceCard />
-                                            </Col>
+                                            {/* Education Section */}
+                                            <Card
+                                                style={{
+                                                    background: '#FFFFFF',
+                                                    border: '1px solid #E5E7EB',
+                                                    borderRadius: '10px',
+                                                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
+                                                    height: '55%'
+                                                }}
+                                            >
+                                                <Card.Body>
+                                                    <Card.Title style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#333' }}>Education</Card.Title>
+                                                    <Card.Text style={{ fontSize: '1.1rem', lineHeight: '1.6', color: '#666' }}>
+                                                        <strong>Purdue University</strong> <br />
+                                                        Bachelor’s of Science and Master’s in Computer Science <br />
+                                                        <em>Expected Graduation: December 2026</em> <br />
+                                                        <strong>GPA:</strong> 3.9/4.0
+                                                    </Card.Text>
+                                                </Card.Body>
+                                            </Card>
+                                        </Col>
 
+                                        {/* Column for Previous Experience */}
+                                        <Col xs={12} md={6}>
+                                            <PreviousExperienceCard />
                                         </Col>
                                     </Row>
                                 </Card>
                             </ReactCardFlip>
                         </div>
                     </Tab>
-                    <Tab eventKey="about me" title="About Me">
-                        <AboutMe/>
+                    <Tab eventKey="Projects" title="Projects">
+                        <Projects/>
                     </Tab>
                 </Tabs>
     );

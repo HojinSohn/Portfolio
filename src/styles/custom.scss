@@ -1,0 +1,28 @@
+/* custom.scss */
+
+// Override Bootstrap default variables
+$primary: #3498db;
+$secondary: #2ecc71;
+$body-bg: #f4f4f4;
+
+// Import Bootstrap SCSS files
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+// Import the rest of Bootstrap styles
+@import "~bootstrap/scss/bootstrap";
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+// Use the custom font in the body
+body {
+  font-family: "Poppins", serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+// Additional styling
+h1, h2, h3 {
+  font-family: "Montserrat", serif;
+  font-weight: 700;
+}

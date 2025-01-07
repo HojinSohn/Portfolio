@@ -1,0 +1,28 @@
+.image-container {
+    position: relative;
+}
+
+.card-img-hover {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.image-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Darken the image */
+    transition: background-color 0.3s ease;
+    opacity: 0;
+}
+
+.image-container:hover::after {
+    opacity: 1;
+}
+
+.card-img-hover:hover {
+    transform: scale(1.05);
+    filter: brightness(80%);
+}
