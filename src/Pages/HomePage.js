@@ -180,7 +180,7 @@ function HomePage() {
                                                     <Card.Text style={{ fontSize: '1.1rem', lineHeight: '1.6', color: '#666' }}>
                                                         <strong>Purdue University</strong> <br />
                                                         Bachelor’s of Science in Computer Science <br />
-                                                        <em>Expected Graduation: December 2026</em> <br />
+                                                        <em>Expected Graduation: December 2025</em> <br />
                                                         <strong>GPA:</strong> 3.9/4.0
                                                     </Card.Text>
                                                 </Card.Body>
