@@ -6,7 +6,7 @@ import './styles/custom.scss';
 
 function App() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/Portfolio">
             <Routes>
                 <Route path="/" element={<HomePage />} />
             </Routes>

@@ -3,27 +3,20 @@ import {
     Container,
     Image,
     Row,
-    Form,
     FormText,
-    Button,
-    Carousel,
     Tabs,
     Tab,
-    ListGroup,
     Badge
 } from 'react-bootstrap';
 import { FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import { IoLogoGithub } from "react-icons/io";
-import { IoIosDocument } from "react-icons/io";
 import ReactCardFlip from 'react-card-flip';
 import {useState} from "react";
 import Card from 'react-bootstrap/Card';
 import { useNavigate } from 'react-router-dom';
-import AboutMe from "../Components/Projects";
 import PreviousExperienceCard from "../Components/PreviousExperienceCard";
-import { FaArrowRotateLeft } from "react-icons/fa6";
 import Projects from "../Components/Projects";
 
 function HomePage() {
@@ -59,6 +52,14 @@ function HomePage() {
                     onSelect={(k) => setKey(k)}
                     className="mb-3"
                     transition={true}
+                    style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        zIndex: 1000, // Ensures it stays above other content
+                        background: 'white',
+                    }}
                 >
                     <Tab eventKey="home" title="Home">
                         <div style={{
@@ -66,6 +67,7 @@ function HomePage() {
                             justifyContent: 'center',
                             alignItems: 'center',
                             minHeight: '100vh',
+                            marginTop: 10
                         }}>
                             <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
                                 <Card className="shadow-lg  d-flex justify-content-center align-content-center"
@@ -74,7 +76,7 @@ function HomePage() {
                                     <Row className="justify-content-center w-100">
                                         <Col xs={12} md={6} className="d-flex justify-content-center align-items-center">
                                             {/* Centering image within the column */}
-                                            <Image src="/images/Profile.jpeg" alt="Image description" width={350} height={350} roundedCircle />
+                                            <Image src={`${process.env.PUBLIC_URL}/images/Profile.jpeg`} alt="Image description" width={350} height={350} roundedCircle />
                                         </Col>
                                         <Col xs={12} md={6} className="d-flex justify-content-center align-items-center">
                                             <Row>
@@ -143,48 +145,75 @@ function HomePage() {
                                         {/* Column for Education and Interest */}
                                         <Col xs={12} md={6}>
                                             {/* Interest Section */}
-                                            <Card
-                                                style={{
-                                                    background: '#F9FAFB',
-                                                    border: '1px solid #E5E7EB',
-                                                    borderRadius: '10px',
-                                                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-                                                    height: '40%'
-                                                }}
-                                            >
-                                                <Card.Body>
-                                                    <Card.Title style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#333' }}>Interest</Card.Title>
-                                                    <div className="d-flex flex-wrap justify-content-center gap-2 mt-3">
-                                                        <Badge bg="primary" className="px-3 py-2" style={{ fontSize: '1rem' }}>Machine Learning</Badge>
-                                                        <Badge bg="secondary" className="px-3 py-2" style={{ fontSize: '1rem' }}>Software Engineering</Badge>
-                                                    </div>
-                                                </Card.Body>
-                                            </Card>
+                                            {/*<Card*/}
+                                            {/*    style={{*/}
+                                            {/*        background: '#F9FAFB',*/}
+                                            {/*        border: '1px solid #E5E7EB',*/}
+                                            {/*        borderRadius: '10px',*/}
+                                            {/*        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',*/}
+                                            {/*        height: '40%'*/}
+                                            {/*    }}*/}
+                                            {/*>*/}
+                                            {/*    <Card.Body>*/}
+                                            {/*        <Card.Title style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#333' }}>Interest</Card.Title>*/}
+                                            {/*        <div className="d-flex flex-wrap justify-content-center gap-2 mt-3">*/}
+                                            {/*            <Badge bg="primary" className="px-3 py-2" style={{ fontSize: '1rem' }}>Machine Learning</Badge>*/}
+                                            {/*            <Badge bg="secondary" className="px-3 py-2" style={{ fontSize: '1rem' }}>Software Engineering</Badge>*/}
+                                            {/*        </div>*/}
+                                            {/*    </Card.Body>*/}
+                                            {/*</Card>*/}
 
-                                            <Col style={{ height: '5%', maxWidth: '500px'}}>
+                                            {/*<Col style={{ height: '5%', maxWidth: '500px'}}>*/}
 
-                                            </Col>
+                                            {/*</Col>*/}
 
                                             {/* Education Section */}
                                             <Card
                                                 style={{
                                                     background: '#FFFFFF',
-                                                    border: '1px solid #E5E7EB',
-                                                    borderRadius: '10px',
-                                                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
-                                                    height: '55%'
+                                                    border: '0px',
+                                                    height: '30%'
                                                 }}
                                             >
                                                 <Card.Body>
                                                     <Card.Title style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#333' }}>Education</Card.Title>
                                                     <Card.Text style={{ fontSize: '1.1rem', lineHeight: '1.6', color: '#666' }}>
                                                         <strong>Purdue University</strong> <br />
-                                                        Bachelor’s of Science and Master’s in Computer Science <br />
+                                                        Bachelor’s of Science in Computer Science <br />
                                                         <em>Expected Graduation: December 2026</em> <br />
                                                         <strong>GPA:</strong> 3.9/4.0
                                                     </Card.Text>
                                                 </Card.Body>
                                             </Card>
+
+                                            <Card
+                                                style={{
+                                                    background: '#FFFFFF',
+                                                    border: '0px',
+                                                    height: '50%',
+                                                }}
+                                            >
+                                                <Card.Body>
+                                                    <Card.Title style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#333' }}>Courses</Card.Title>
+                                                    <Card.Text style={{ fontSize: '1.1rem', lineHeight: '1.6', color: '#666' }}>
+                                                        <ul style={{ paddingLeft: '20px' }}>
+                                                            <li><strong>Computer Architecture (TA in Fall 2024)</strong></li>
+                                                            <li><strong>System Programming (TA in Spring 2025)</strong></li>
+                                                            <li><strong>Programming in C</strong></li>
+                                                            <li><strong>Data Mining and Machine Learning</strong></li>
+                                                            <li><strong>Introduction to the Analysis of Algorithms</strong></li>
+                                                            <li><strong>Introduction to Artificial Intelligence</strong></li>
+                                                            <li><strong>Data Structures and Algorithms</strong></li>
+                                                            <li><strong>Information Systems</strong></li>
+                                                            <li><strong>Compiler Design</strong></li>
+                                                            <li><strong>Foundations of Deep Learning</strong></li>
+                                                            <li><strong>Introduction to Relational Database Systems</strong></li>
+                                                            {/* Add more courses as needed */}
+                                                        </ul>
+                                                    </Card.Text>
+                                                </Card.Body>
+                                            </Card>
+
                                         </Col>
 
                                         {/* Column for Previous Experience */}
@@ -202,52 +231,4 @@ function HomePage() {
                 </Tabs>
     );
 }
-
-
-// <Card className="shadow-lg d-flex justify-content-center align-content-center"
-//       style={{ width: '70em', height: '40em', background: '#FFFFFE', border: '1px', boxShadow: '0 10px 30px 5px rgba(0, 0, 0, 0.5)' }}
-//       onClick={flipCard}>
-//
-//     <Row className="w-100">
-//         {/* Sub-card 1 */}
-//         <Col xs={12} md={4} className="mb-4 d-flex justify-content-center">
-//             <Card style={{ width: '18rem' }} className="shadow-sm">
-//                 <Card.Body>
-//                     <Card.Title>Project 1</Card.Title>
-//                     <Card.Text>
-//                         Description of Project 1. This could be a brief overview of the project, the technologies used, and its purpose.
-//                     </Card.Text>
-//                     <Button variant="primary" onClick={() => window.open('https://link-to-project.com', '_blank')}>View Project</Button>
-//                 </Card.Body>
-//             </Card>
-//         </Col>
-//
-//         {/* Sub-card 2 */}
-//         <Col xs={12} md={4} className="mb-4 d-flex justify-content-center">
-//             <Card style={{ width: '18rem' }} className="shadow-sm">
-//                 <Card.Body>
-//                     <Card.Title>Project 2</Card.Title>
-//                     <Card.Text>
-//                         Description of Project 2. This could include the project's goals, challenges, and results achieved.
-//                     </Card.Text>
-//                     <Button variant="primary" onClick={() => window.open('https://link-to-project.com', '_blank')}>View Project</Button>
-//                 </Card.Body>
-//             </Card>
-//         </Col>
-//
-//         {/* Sub-card 3 */}
-//         <Col xs={12} md={4} className="mb-4 d-flex justify-content-center">
-//             <Card style={{ width: '18rem' }} className="shadow-sm">
-//                 <Card.Body>
-//                     <Card.Title>Project 3</Card.Title>
-//                     <Card.Text>
-//                         Description of Project 3. It could cover the challenges faced, solutions implemented, and any technologies involved.
-//                     </Card.Text>
-//                     <Button variant="primary" onClick={() => window.open('https://link-to-project.com', '_blank')}>View Project</Button>
-//                 </Card.Body>
-//             </Card>
-//         </Col>
-//     </Row>
-// </Card>
-
 export default HomePage;

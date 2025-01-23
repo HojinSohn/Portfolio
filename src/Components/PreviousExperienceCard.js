@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Card, Row, Col, Image } from "react-bootstrap";
 import './ProjectImage.css';
-import ReactCardFlip from "react-card-flip"; // Make sure to import the CSS file for flip effect
 
 const PreviousExperienceCard = () => {
     const [flipped, setFlipped] = useState(false);
@@ -9,7 +8,7 @@ const PreviousExperienceCard = () => {
     const flipCard = () => setFlipped(!flipped);
 
     return (
-        <Col xs={12} md={6} className="justify-content-center align-items-center">
+        <Col xs={12} md={6} className="justify-content-center align-items-center" style={{height: '50%'}}>
             <Card style={{ width: '500px', maxWidth: '500px', background: '#FFFFFF',
                 border: '1px solid #E5E7EB',
                 borderRadius: '10px',
@@ -19,7 +18,7 @@ const PreviousExperienceCard = () => {
                         {/* Company Logo */}
                         <Col xs={12} className="d-flex justify-content-center mb-3">
                             <Image
-                                src="/images/lge-ku.jpeg" // Add the correct path to your logo
+                                src={`${process.env.PUBLIC_URL}/images/lge-ku.jpeg`} // Add the correct path to your logo
                                 alt="LG&E and KU logo"
                                 rounded
                                 style={{

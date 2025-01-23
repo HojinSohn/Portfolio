@@ -4,7 +4,7 @@ const Projects = () => {
     const projects = [
         {
             title: "SnapBattle",
-            image: "/images/snapbattle.png",
+            image: `${process.env.PUBLIC_URL}/images/snapbattle.png`,
             subtitle: "Mobile App Development (Group of 5)",
             duration: "January - May 2024",
             description: "Group project - CS 307 (Software Engineering I)\n" +
@@ -16,7 +16,7 @@ const Projects = () => {
         },
         {
             title: "Customer Purchases Prediction",
-            image: "/images/kaggle.png",
+            image: `${process.env.PUBLIC_URL}/images/kaggle.png`,
             subtitle: "Machine Learning Model Development",
             duration: "September - December 2024",
             description: "Kaggle Competition Project (CS 37300) \n" +
@@ -28,7 +28,7 @@ const Projects = () => {
         },
         {
             title: "To-Do List Handler",
-            image: "/images/todoWeb.png",
+            image: `${process.env.PUBLIC_URL}/images/todoWeb.png`,
             subtitle: "Restful API + CLI + FrontEnd",
             duration: "August 2023",
             description: "● Built a REST API and Webpage that manages to-do lists, including titles, dates, and descriptions\n" +
@@ -38,7 +38,7 @@ const Projects = () => {
         },
         {
             title: "Matchify",
-            image: "/images/Matchify.png",
+            image: `${process.env.PUBLIC_URL}/images/Matchify.png`,
             subtitle: "Mobile App Development (Independently Built)",
             duration: "June - August 2023",
             description: "● Mobile Application that helps people connect based on music taste\n" +
@@ -52,7 +52,7 @@ const Projects = () => {
 
     return (
         <Container className="mt-5">
-            <Row className="g-4">
+            <Row className="g-4" style={{marginTop: 10}}>
                 {projects.map((project, index) => (
                     <Col xs={12} sm={6} md={4} key={index}>
                         <Card className="shadow-lg h-100">
