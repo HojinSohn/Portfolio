@@ -26,3 +26,19 @@ h1, h2, h3 {
   font-family: "Montserrat", serif;
   font-weight: 700;
 }
+
+.home { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin-top: 10px;
+  background-color: #D3D3D3;
+}
+
+.card {
+  width: '70em';
+  height: '40em';
+  background: '#FFFFFE';
+  border: '1px';
+}
